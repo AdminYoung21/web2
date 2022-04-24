@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap.min.css') }}" >
+</head>
+<body class="container">
+    <header>
+        <nav>
+            <h1>Ремонт майнерного оборудования</h1>
+        </nav>
+    </header>
+    <!-- Begin page content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        @Авторство
+    </footer>
+
+</body>
+</html>

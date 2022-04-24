@@ -1,0 +1,10 @@
+div.main{
+    background-image: url("../img/backgrounds/fon5.jpg");
+    background-position: bottom;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	height: 800px;
+}
+main{
+}
