@@ -4,58 +4,53 @@
     orders
 {% endblock %}
 {% block main %}
-<!--<a href="/order" class="active">Заявки</a>-->
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
-  border: 1px solid #ddd;
-}
-
-th, td {
-  text-align: left;
-  padding: 8px;
-}
-
-tr:nth-child(even){background-color: #f2f2f2}
-</style>
-</head>
-<body>
-<h1>Статистика</h1>
-<div style="overflow-x:auto;">
-    <table border="1">
-        <tr>
-            <th>id</th>
-            <th>Имя</th>
-            <th>Фамилия</th>
-            <th>Отчество</th>
-            <th>Почта</th>
-            <th>город</th>
-            <th>Адрес</th>
-            <th>Название оборудования</th>
-            <th>Серийный номер оборудования</th>
-        </tr>
-        <tr>
-            <td>1</td>
-            <td>Артём</td>
-            <td>Клепиков</td>
-            <td>Владиславович</td>
-            <td>young@mail.ru</td>
-            <td>Иркутск</td>
-            <td>Гоголя,92,294</td>
-            <td>Whatsminer M30S++ 112Th/s</td>
-            <td>699665498561984</td>
-        </tr>
-    </table>
-
-</div>
-
-</body>
-</html>
-    <main>
-    </main>
+    <div style="overflow-x:auto;">
+        <table border="1">
+            <tr>
+                <th>id</th>
+                {% if current_user.type_user != 'инженер' %}
+                <th>Имя</th>
+                <th>Фамилия</th>
+                <th>Отчество</th>
+                <th>Почта</th>
+                <th>Город</th>
+                <th>Адрес</th>
+                <th>Тип пользователя</th>
+                <th>Номер</th>
+                {% endif%}
+                <th>Название оборудования</th>
+                <th>Серийный номер оборудования</th>
+                <th>Статус заказа</th>
+                <th>Действия</th>
+            </tr>
+            {% for item in orders %}
+            <tr>
+                <td>{{item.id}}</td>
+                {% if current_user.type_user != 'инженер' %}
+                    <td>{{item.name}}</td>
+                    <td>{{item.surname}}</td>
+                    <td>{{item.patronymic}}</td>
+                    <td>{{item.email}}</td>
+                    <td>{{item.town}}</td>
+                    <td>{{item.adress}}</td>
+                    <td>{{item.type_user}}</td>
+                    <td>{{item.number}}</td>
+                {% endif%}
+                <td>{{item.name_equipment}}</td>
+                <td>{{item.number_equipment}}</td>
+                <td>{{item.status_order}}</td>
+                {% if current_user.type_user != 'менеджер' %}
+                    <td>
+                        <a href="/orders_status_edit/{{ item.id }}" class="btn btn-warning">Изменить статус заказа</a>
+                    </td>
+                {% endif %}
+                {% if current_user.type_user != 'инженер' %}
+                    <td>
+                        <a href="/orders_close/{{ item.id }}" class="btn btn-warning">Закрыть сделку</a>
+                    </td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
 {% endblock %}

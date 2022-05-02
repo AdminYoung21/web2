@@ -1,42 +1,64 @@
-from flask import Blueprint, redirect, render_template,request
+from flask import Blueprint, redirect, render_template, request,abort
 from data import db_session
 from data.orders import Orders
-from forms.forms import OrdersForm
+from forms.forms import OrdersForm, StatusEditOrdersForm
 
 
 bp = Blueprint('orders', __name__, url_prefix='/')
 
 
-# @bp.route("/statistics")
-# def statistics():
-#     return render_template("statistics.html")
-
-#
-# @bp.route("/sklad")
-# def sklad():
-#     return render_template("sklad.html")
-#
-#
-# @bp.route("/sc")
-# def sc():
-#     return render_template("sc.html")
-def seach():
+def search():
     pass
 
 
 @bp.route("/orders")
 def orders():
-    return render_template("orders.html")
+    db_sess = db_session.create_session()
+    orders = db_sess.query(Orders).filter()
+    return render_template("orders.html", orders=orders)
 
 
-@bp.route("/orders_status_edit")
-def orders_status_edit():
-    return render_template("orders.html")
+@bp.route("/orders_status_edit/<int:id>", methods=['GET', 'POST'])
+def orders_status_edit(id):
+    form = StatusEditOrdersForm()
+    if request.method == "GET":
+        db_sess = db_session.create_session()
+        order = db_sess.query(Orders).filter(Orders.id == id).first()
+        if order:
+            form.status_order.data = order.status_order
+            form.name_equipment.data = order.name_equipment
+            form.number_equipment.data = order.number_equipment
+        else:
+            abort(404)
+    if request.method == "POST":
+        db_sess = db_session.create_session()
+        order = db_sess.query(Orders).filter(Orders.id == id).first()
+        if order:
+            order.status_order = form.status_order.data
+            order.name_equipment = form.name_equipment.data
+            order.number_equipment = form.number_equipment.data
+            db_sess.commit()
+            return redirect('/orders')
+        else:
+            abort(404)
+    return render_template("orders_change_status.html", form=form)
+
+
+@bp.route("/orders_close/<int:id>", methods=['GET', 'POST'])
+def orders_close(id):
+    db_sess = db_session.create_session()
+    orders = db_sess.query(Orders).filter(Orders.id == id).first()
+    if orders:
+        db_sess.delete(orders)
+        db_sess.commit()
+    else:
+        abort(404)
+    return redirect('/orders')
 
 
 @bp.route("/home")
 def home():
-    return render_template("home.html")
+    return redirect("/orders")
 
 
 @bp.route("/orders_up", methods=['GET', 'POST'])
@@ -59,9 +81,8 @@ def orders_up():
         db_sess.add(order)
         print(order.email)
         db_sess.commit()
-        return redirect('/')
+        return redirect('/orders')
     return render_template('orders_up.html', form=form)
-
 
 
 

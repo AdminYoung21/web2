@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h3>Изменение статуса заказа</h3>
+<br>
+<form action="" method="post">
+    <p>
+        {{ form.name_equipment.label }}<br>
+        {{ form.name_equipment(class="form-control", type="name_equipment") }}<br>
+
+    </p>
+    <p>
+        {{ form.number_equipment.label }}<br>
+        {{ form.number_equipment(class="form-control", type="number_equipment") }}<br>
+    </p>
+    <p>
+        {{ form.status_order.label }}<br>
+        {{ form.status_order(class="form-control") }}<br>
+        {% for error in form.status_order.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    {{message}}
+</form>
+{% endblock %}
+
