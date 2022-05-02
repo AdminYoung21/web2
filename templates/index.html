@@ -13,8 +13,7 @@
                     <a href="/home" class="active">Главная</a>
                     <a href="/orders">Заказы</a>
                     <a href="/orders_up">Добавить заказ</a>
-                    <a href="/sklad">Склад</a>
-                    <a href="/statistics">Статистика</a>
+<!--                    <a href="/statistics">Статистика</a>-->
                     <a href="/profile">Профиль</a>
                     <a href="/logout">Выйти</a>
                 </div>
@@ -22,9 +21,9 @@
                 <div class="topnav" id="myTopnav">
                     <a href="/home" class="active">Главная</a>
                     <a href="/orders">Заказы</a>
-                    <a href="/orders_up">Добавить заказ</a>
-                    <a href="/sklad">Склад</a>
-                    <a href="/statistics">Статистика</a>
+                    {% if current_user.type_user == 'менеджер' %}
+                        <a href="/orders_up">Добавить заказ</a>
+                    {% endif %}
                     <a href="/profile">Профиль</a>
                     <a href="/logout">Выйти</a>
                 </div>

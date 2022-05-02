@@ -15,17 +15,20 @@ class RegisterForm(FlaskForm):
 class LoginForm(FlaskForm):
     email = EmailField('Почта', validators=[DataRequired()])
     password = PasswordField('Пароль', validators=[DataRequired()])
-    remember_me = BooleanField('Запомнить меня')
+    # remember_me = BooleanField('Запомнить меня')
     submit = SubmitField('Войти')
 
 
 class OrdersForm(FlaskForm):
     name = StringField('Имя пользователя', validators=[DataRequired()])
     surname = StringField('Фмилия пользователя', validators=[DataRequired()])
-    middle_name = StringField('Отчество пользователя', validators=[DataRequired()])
+    patronymic = StringField('Отчество пользователя', validators=[DataRequired()])
     email = EmailField('Почта', validators=[DataRequired()])
-    namber = StringField('номер пользователя', validators=[DataRequired()])
-    equipment = StringField('оборудование пользователя', validators=[DataRequired()])
-
-
+    town = StringField('Город', validators=[DataRequired()])
+    adress = StringField('Адрес', validators=[DataRequired()])
+    type_user = StringField('тип gjkmpjdfntkz', validators=[DataRequired()])
+    number = StringField('Номер пользователя', validators=[DataRequired()])
+    name_equipment = StringField('Оборудование пользователя', validators=[DataRequired()])
+    number_equipment = StringField('Номер оборудование пользователя', validators=[DataRequired()])
+    submit = SubmitField('Отправить')
 

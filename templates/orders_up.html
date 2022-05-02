@@ -1,37 +1,100 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
-    <form action="action_page.php">
-
-    <label for="fname">Имя</label>
-    <input type="text" id="fname" name="firstname" placeholder="Ваше имя..">
-
-    <label for="lname">Фамилия</label>
-    <input type="text" id="lname" name="lastname" placeholder="Ваша фамилия..">
-
-    <label for="hname">Отчество</label>
-    <input type="text" id="hname" name="lastname" placeholder="Ваша отчество..">
-
-    <label for="email"><i class="fa fa-envelope"></i> Email</label>
-    <input type="text" id="email" name="email">
-
-    <label for="city"><i class="fa fa-institution"></i>Город</label>
-    <input type="text" id="city" name="city" placeholder="Иркутск">
-
-    <label for="adr"><i class="fa fa-address-card-o"></i>Адрес</label>
-    <input type="text" id="adr" name="address" placeholder="ул., дом., кв">
-
-    <label for="subject">Название оборудования</label>
-    <textarea id="subject" name="subject" placeholder="Написать"></textarea>
-
-    <label for="subject">Серийный номер оборудования</label>
-    <textarea id="idsubject" name="idsubject" placeholder="Написать"></textarea>
-
-    <div>
-        <a href="/home" class="active">Отправить</a>
-    </div>
-
-    </form>
-</div>
+<h1>Регистрация</h1>
+<form action="" method="post">
+    <p>
+        {{ form.name.label }}<br>
+        {{ form.name(class="form-control", type="name") }}<br>
+        {% for error in form.name.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.surname.label }}<br>
+        {{ form.surname(class="form-control", type="surname") }}<br>
+        {% for error in form.surname.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.patronymic.label }}<br>
+        {{ form.patronymic(class="form-control", type="patronymic") }}<br>
+        {% for error in form.patronymic.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.email.label }}<br>
+        {{ form.email(class="form-control", type="email") }}<br>
+        {% for error in form.email.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.town.label }}<br>
+        {{ form.town(class="form-control", type="town") }}<br>
+        {% for error in form.town.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.adress.label }}<br>
+        {{ form.adress(class="form-control", type="adress") }}<br>
+        {% for error in form.adress.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.type_user.label }}<br>
+        {{ form.type_user(class="form-control", type="type_user") }}<br>
+        {% for error in form.type_user.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.number.label }}<br>
+        {{ form.number(class="form-control", type="number") }}<br>
+        {% for error in form.number.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.name_equipment.label }}<br>
+        {{ form.name_equipment(class="form-control", type="name_equipment") }}<br>
+        {% for error in form.name_equipment.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>
+        {{ form.number_equipment.label }}<br>
+        {{ form.number_equipment(class="form-control", type="number_equipment") }}<br>
+        {% for error in form.number_equipment.errors %}
+            <p class="alert alert-danger" role="alert">
+                {{ error }}
+            </p>
+        {% endfor %}
+    </p>
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+    {{message}}
+</form>
 {% endblock %}
+
