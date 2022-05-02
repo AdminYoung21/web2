@@ -1,10 +1,67 @@
-div.main{
-    background-image: url("../img/backgrounds/fon5.jpg");
-    background-position: bottom;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-attachment: fixed;
-	height: 800px;
+/* Добавить черный цвет фона для верхней навигации */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
 }
-main{
+
+/* Стиль ссылок внутри панели навигации */
+.topnav a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Изменение цвета ссылок при наведении курсора */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Добавить активный класс, чтобы выделить текущую страницу */
+.topnav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+/* Входные данные стиля с type="text", выберите элементы и области текста */
+input[type=text], select, textarea {
+  width: 100%; /* Полная ширина */
+  padding: 12px; /* Немного отступов */
+  border: 1px solid #ccc; /* Серая граница */
+  border-radius: 4px; /* Округленные границы */
+  box-sizing: border-box; /* Убедитесь, что прокладка и ширина остаются на месте */
+  margin-top: 6px; /* Добавить верхнее поле */
+  margin-bottom: 16px; /* Нижнее поле */
+  resize: vertical /* Разрешить пользователю изменять размер текстовой области по вертикали (не по горизонтали) */
+}
+
+/* Стиль кнопки Отправить с определенным цветом фона и т. д */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* При наведении курсора мыши на кнопку Отправить добавьте более темный зеленый цвет */
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Добавить цвет фона и некоторые отступы вокруг формы */
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+
+/* сделает ширину таблицы равной ширине блока контейнера, в котором она находится */
+table {
+   width: 100%;
 }

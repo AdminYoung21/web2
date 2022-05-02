@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <form action="action_page.php">
+
+    <label for="fname">Имя</label>
+    <input type="text" id="fname" name="firstname" placeholder="Ваше имя..">
+
+    <label for="lname">Фамилия</label>
+    <input type="text" id="lname" name="lastname" placeholder="Ваша фамилия..">
+
+    <label for="hname">Отчество</label>
+    <input type="text" id="hname" name="lastname" placeholder="Ваша отчество..">
+
+    <label for="email"><i class="fa fa-envelope"></i> Email</label>
+    <input type="text" id="email" name="email">
+
+    <label for="city"><i class="fa fa-institution"></i>Город</label>
+    <input type="text" id="city" name="city" placeholder="Иркутск">
+
+    <label for="adr"><i class="fa fa-address-card-o"></i>Адрес</label>
+    <input type="text" id="adr" name="address" placeholder="ул., дом., кв">
+
+    <label for="subject">Название оборудования</label>
+    <textarea id="subject" name="subject" placeholder="Написать"></textarea>
+
+    <label for="subject">Серийный номер оборудования</label>
+    <textarea id="idsubject" name="idsubject" placeholder="Написать"></textarea>
+
+    <div>
+        <a href="/home" class="active">Отправить</a>
+    </div>
+
+    </form>
+</div>
+{% endblock %}

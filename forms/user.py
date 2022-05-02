@@ -17,3 +17,15 @@ class LoginForm(FlaskForm):
     password = PasswordField('Пароль', validators=[DataRequired()])
     remember_me = BooleanField('Запомнить меня')
     submit = SubmitField('Войти')
+
+
+class OrdersForm(FlaskForm):
+    name = StringField('Имя пользователя', validators=[DataRequired()])
+    surname = StringField('Фмилия пользователя', validators=[DataRequired()])
+    middle_name = StringField('Отчество пользователя', validators=[DataRequired()])
+    email = EmailField('Почта', validators=[DataRequired()])
+    namber = StringField('номер пользователя', validators=[DataRequired()])
+    equipment = StringField('оборудование пользователя', validators=[DataRequired()])
+
+
+
