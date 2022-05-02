@@ -1,0 +1,68 @@
+{% extends 'index.html' %}
+
+{% block title %}
+    orders
+{% endblock %}
+{% block main %}
+<!--    <nav>-->
+<!--        <ul class="nav flex-column">-->
+<!--            <li class="nav-item">-->
+<!--                <a class="nav-link" href="/logout">-->
+<!--                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-users" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg><ya-tr-span data-index="5-0" data-translated="true" data-source-lang="en" data-target-lang="ru" data-value=" Customers " data-translation=" profile " data-type="trSpan">  Выйти  </ya-tr-span></a>-->
+<!--            </li>-->
+<!--        </ul>-->
+<!--    </nav>-->
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+</style>
+</head>
+<body>
+<h1>Статистика</h1>
+<div style="overflow-x:auto;">
+    <table border="1">
+        <tr>
+            <th>id</th>
+            <th>Имя</th>
+            <th>Фамилия</th>
+            <th>Отчество</th>
+            <th>Почта</th>
+            <th>город</th>
+            <th>Адрес</th>
+            <th>Название оборудования</th>
+            <th>Серийный номер оборудования</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>Артём</td>
+            <td>Клепиков</td>
+            <td>Владиславович</td>
+            <td>young@mail.ru</td>
+            <td>Иркутск</td>
+            <td>Гоголя,92,294</td>
+            <td>Whatsminer M30S++ 112Th/s</td>
+            <td>699665498561984</td>
+        </tr>
+    </table>
+
+</div>
+
+</body>
+</html>
+    <main>
+    </main>
+{% endblock %}
